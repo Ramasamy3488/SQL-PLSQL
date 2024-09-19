@@ -65,3 +65,21 @@ insert into	my_cust	values(100, 'Sakthi', to_date('23/10/1990','mm/dd/yyyy'), 99
 insert into	my_cust	values(100, 'Rangan', to_date('24/10/1990','mm/dd/yyyy'), 9987668893, 'Chennai');
 insert into	my_cust	values(100, 'Murugan', to_date('25/10/1990','mm/dd/yyyy'), 9987668894, 'Tindivanam');
 
+declare
+v_mobile_no number(10);
+begin
+select mobile_no into v_mobile_no from my_cust	where cust_id=100;
+dbms_output.put_line('The mobile_no is : ' || v_mobile_no);
+end;
+/
+
+--///////////////////////////////////////////////////////////////
+
+desc my_cust;
+create table my_cust (cust_id number(9), cust_name varchar2(20),dob date, mobile_no number(10),city varchar2(20));
+create table my_cust (cust_id number(9), cust_name varchar2(20),dob date, mobile_no varchar2(30),city varchar2(20));
+
+create table my_cust_bkup as select * from my_cust;
+
+drop table my_cust;
+
