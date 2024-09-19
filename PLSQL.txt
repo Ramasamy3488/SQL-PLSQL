@@ -54,3 +54,14 @@ update myemp_bkup set salary = 50000 where emp_id=303;
 commit;
 end;
 /
+
+--//////////////////////////////////////////////////////////;
+
+create table my_cust (cust_id number(9), cust_name varchar2(20),dob date, mobile_no number(10),city varchar2(20));
+
+insert into	my_cust	values(100, 'Ragul', to_date('20/10/1990','mm/dd/yyyy'), 9987668890, 'Chennai');
+insert into	my_cust	values(100, 'Kumar', to_date('22/10/1990','mm/dd/yyyy'), 9987668891, 'Selam');
+insert into	my_cust	values(100, 'Sakthi', to_date('23/10/1990','mm/dd/yyyy'), 9987668892, 'Madurai');
+insert into	my_cust	values(100, 'Rangan', to_date('24/10/1990','mm/dd/yyyy'), 9987668893, 'Chennai');
+insert into	my_cust	values(100, 'Murugan', to_date('25/10/1990','mm/dd/yyyy'), 9987668894, 'Tindivanam');
+
