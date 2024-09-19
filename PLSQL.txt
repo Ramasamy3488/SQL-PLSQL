@@ -1,0 +1,56 @@
+--PLSQL
+-- 1. Anonymous block
+-- 2. Named block
+declare
+num1 constant number(10) :=10;
+num2 number(10) not null :=40;
+begin
+--num1:=10;
+--num2:=null;
+dbms_output.put_line(num1+num2);
+end;
+/
+
+--////////////////////////////////////;
+
+declare
+v_fname varchar2(20);
+begin
+select first_name into v_fname from employees where employee_id=101;
+dbms_output.put_line(v_fname);
+end;
+/
+
+--////////////////////////////////////;
+
+declare
+v_fname varchar2(20);
+v_salary number;
+begin
+select first_name, salary into v_fname,v_salary from employees where employee_id=101;
+dbms_output.put_line('Name : ' || v_fname || ', Salary : ' ||v_salary);
+end;
+/
+
+--////////////////////////////////////////////;
+
+select * from myemp1;
+select * from myemp_bkup;
+create table myemp_bkup as select * from myemp where 1=0;
+
+begin 
+insert into myemp_bkup
+select emp_id,emp_name,salary,dept_id from myemp;
+commit;
+end;
+/
+
+rollback;
+
+--/////////////////////////////////////////////////////////;
+
+begin 
+update myemp_bkup set salary = 50000 where emp_id=303;
+commit;
+end;
+/
